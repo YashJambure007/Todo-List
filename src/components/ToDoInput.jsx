@@ -2,16 +2,18 @@
 import { useState } from "react";
 
 function ToDoInput(props) {
-  const [inputText, setInputText] = useState("");
+
+  const [inputText, setInputText] = useState("")
+  
   const handleEnterPress = (e) => {
     if(e.keyCode===13){
-        props.addList(inputText);
-        setInputText("")
+      props.addList(inputText);
+      setInputText("")
     }
   }
 
   return (
-    <div>
+    
       <div className="input-container">
         <input
           type="text"
@@ -19,14 +21,14 @@ function ToDoInput(props) {
           placeholder="Enter List Here"
           value={inputText}
           onChange={(e) => {
-            setInputText(e.target.value);
+            setInputText(e.target.value)
           }}
           onKeyDown={handleEnterPress}
         />
         <button
           className="add-btn"
           onClick={() => {
-            props.addList(inputText);
+            props.addList(inputText)
             setInputText("")
           }}
         >
@@ -34,7 +36,7 @@ function ToDoInput(props) {
           +{" "}
         </button>
       </div>
-    </div>
+  
   );
 }
 
